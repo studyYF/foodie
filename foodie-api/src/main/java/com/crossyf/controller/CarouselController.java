@@ -15,13 +15,26 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * spring事务的传播机制
+ *  REQUIRED： 默认，父方法有事务，子方法跟随父方法的事务，父方法没有事务，子方法新建一个事务
+ *  SUPPORTS:  子方法跟随父方法
+ *  MANDATORY（强制性）: 必须存在事务，如果没有，则抛出异常
+ *  REQUIRED_NEW: 父方法有事务，挂起，子方法新建一个事务
+ *  NOT_SUPPORT: 父方法有事务，挂起事务，子方法不包含事务
+ *  NEVER: 父方法不允许有事务，如果有事务，则抛出异常
+ *  NESTED: 嵌套事务，父方法有事务，子方法也新开启事务，他们同时提交（区别于REQUIRED）如果父事务提交，子事务也一起提交，
+ *          如果子事务回滚，父事务可以不会滚。
+ *
+ */
+
+/**
  * 轮播图 (Carousel)表控制层
  *
  * @author crossyf
  * @since 2020-08-18 23:37:18
  */
 @RestController
-@RequestMapping("carousel")
+@RequestMapping("/carousel")
 public class CarouselController extends ApiController {
     /**
      * 服务对象

@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
       type: com.zaxxer.hikari.HikariDataSource
-      url: jdbc:mysql://localhost:3306/foodie-shop?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+      url: jdbc:mysql://localhost:3306/foodie-shop?useSSL=false&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: 853211

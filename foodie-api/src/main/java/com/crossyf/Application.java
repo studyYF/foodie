@@ -3,6 +3,7 @@ package com.crossyf;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author Created by YangFan.
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.crossyf.mapper")
+@ComponentScan(basePackages = {"com.crossyf","org.n3r.idworker"})
 public class Application {
 
     public static void main(String[] args) {
