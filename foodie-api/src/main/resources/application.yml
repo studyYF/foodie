@@ -1,6 +1,5 @@
 server:
   port: 8088
-
 spring:
   datasource:
       type: com.zaxxer.hikari.HikariDataSource
@@ -22,4 +21,7 @@ spring:
 mybatis-plus:
   type-aliases-package: com.crossyf.entity
   mapper-locations: classpath:mapper/*.xml
-
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  config: classpath:logback.xml
