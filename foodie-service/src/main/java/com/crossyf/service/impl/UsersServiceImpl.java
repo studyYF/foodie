@@ -31,7 +31,8 @@ public class UsersServiceImpl extends ServiceImpl<UsersMapper, Users> implements
     private Sid sid;
 
 
-    private static final String USER_FACE = "http://122.152.205.72:88/group1/M00/00/05/CpoxxFw_8_qAIlFXAAAcIhVPdSg994.png";
+    private static final String USER_FACE = "http://122.152.205" +
+            ".72:88/group1/M00/00/05/CpoxxFw_8_qAIlFXAAAcIhVPdSg994.png";
 
     @Override
     public JsonResponse saveUser(UserBO userBO) {
@@ -50,6 +51,6 @@ public class UsersServiceImpl extends ServiceImpl<UsersMapper, Users> implements
         user.setCreatedTime(new Date());
         user.setUpdatedTime(new Date());
         boolean success = save(user);
-        return success ? JsonResponse.ok() : JsonResponse.errorMsg("注册失败");
+        return success ? JsonResponse.ok(user) : JsonResponse.errorMsg("注册失败");
     }
 }
