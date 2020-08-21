@@ -25,7 +25,7 @@ public interface CategoryMapper extends BaseMapper<Category> {
 
     /**
      * 查询每个一级分类下的最新6条商品数据
-     * @param rootCatId 分类id
+     * @param map 分类id
      * @return 结果
      */
     List<NewItemsVO> querySixNewItemsLazy(Map<String, Object> map);
