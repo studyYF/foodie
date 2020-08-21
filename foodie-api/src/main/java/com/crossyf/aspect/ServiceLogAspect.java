@@ -1,12 +1,15 @@
 package com.crossyf.aspect;
 
 import cn.hutool.core.date.StopWatch;
+import com.crossyf.utils.JsonUtils;
 import com.google.common.base.Stopwatch;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
 
 /**
  * @author Created by YangFan.
@@ -21,13 +24,15 @@ public class ServiceLogAspect {
 
     /**
      * 记录调用每个service方法的时间，
+     *
      * @param joinPoint 切面
      * @return 结果
      */
     @Around("execution(* com.crossyf.service.impl..*.*(..))")
     public Object methodTime(ProceedingJoinPoint joinPoint) throws Throwable {
-        log.info("====== 开始调用{}.{}方法 ======", joinPoint.getTarget().getClass(),
-                joinPoint.getSignature().getName());
+        log.info("====== 开始调用{}.{}方法, 参数为{} ======", joinPoint.getTarget().getClass(),
+                joinPoint.getSignature().getName(),
+                JsonUtils.objectToJson(Arrays.asList(joinPoint.getArgs())));
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Object proceed = joinPoint.proceed();
