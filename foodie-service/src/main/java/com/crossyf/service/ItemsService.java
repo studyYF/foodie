@@ -6,6 +6,7 @@ import com.crossyf.entity.ItemsImg;
 import com.crossyf.entity.ItemsParam;
 import com.crossyf.entity.ItemsSpec;
 import com.crossyf.entity.vo.CommentLevelCountsVO;
+import com.crossyf.entity.vo.ShoppingCartVO;
 import com.crossyf.utils.PagedGridResult;
 
 import java.util.List;
@@ -93,4 +94,11 @@ public interface ItemsService extends IService<Items> {
      */
     PagedGridResult queryItems(String keywords, String sort, Integer page, Integer pageSize);
 
+    /**
+     * 用于用户长时间未登录网站，刷新购物车中的数据（主要是商品价格），类似京东淘宝
+     *
+     * @param itemSpecIds 商品id，用逗号拼接
+     * @return 结果
+     */
+    List<ShoppingCartVO> queryItemsBySpecIds(String itemSpecIds);
 }

@@ -7,6 +7,7 @@ import com.crossyf.entity.enums.CommentLevel;
 import com.crossyf.entity.vo.CommentLevelCountsVO;
 import com.crossyf.entity.vo.ItemCommentVO;
 import com.crossyf.entity.vo.SearchItemsVO;
+import com.crossyf.entity.vo.ShoppingCartVO;
 import com.crossyf.mapper.*;
 import com.crossyf.service.ItemsService;
 import com.crossyf.utils.DesensitizationUtil;
@@ -17,9 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.crossyf.utils.PagedGridResult.setterPagedGrid;
 
@@ -139,4 +138,11 @@ public class ItemsServiceImpl extends ServiceImpl<ItemsMapper, Items> implements
         return itemsCommentsMapper.selectCount(queryWrapper);
     }
 
+    @Override
+    public List<ShoppingCartVO> queryItemsBySpecIds(String itemSpecIds) {
+        String[] ids = itemSpecIds.split(",");
+        List<String> specIdsList = new ArrayList<>();
+        Collections.addAll(specIdsList, ids);
+        return itemsMapper.queryItemsBySpecIds(specIdsList);
+    }
 }

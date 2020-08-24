@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.crossyf.entity.Items;
 import com.crossyf.entity.vo.ItemCommentVO;
 import com.crossyf.entity.vo.SearchItemsVO;
+import com.crossyf.entity.vo.ShoppingCartVO;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -18,6 +20,7 @@ public interface ItemsMapper extends BaseMapper<Items> {
 
     /**
      * 根据商品id和评价等级查询商品评论
+     *
      * @param map 参数
      * @return 结果
      */
@@ -25,6 +28,7 @@ public interface ItemsMapper extends BaseMapper<Items> {
 
     /**
      * 根据商品分类查询商品
+     *
      * @param map 参数
      * @return 结果
      */
@@ -32,8 +36,17 @@ public interface ItemsMapper extends BaseMapper<Items> {
 
     /**
      * 根据关键字查询商品
+     *
      * @param map 参数
      * @return 结果
      */
     List<SearchItemsVO> queryItems(Map<String, Object> map);
+
+    /**
+     * 用于用户长时间未登录网站，刷新购物车中的数据（主要是商品价格），类似京东淘宝
+     *
+     * @param specIdsList 商品id
+     * @return 结果
+     */
+    List<ShoppingCartVO> queryItemsBySpecIds(@Param(value = "paramsList") List<String> specIdsList);
 }

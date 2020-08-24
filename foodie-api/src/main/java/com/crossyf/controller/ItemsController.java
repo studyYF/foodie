@@ -9,6 +9,7 @@ import com.crossyf.entity.ItemsParam;
 import com.crossyf.entity.ItemsSpec;
 import com.crossyf.entity.vo.CommentLevelCountsVO;
 import com.crossyf.entity.vo.ItemInfoVO;
+import com.crossyf.entity.vo.ShoppingCartVO;
 import com.crossyf.service.ItemsService;
 import com.crossyf.utils.JsonResponse;
 import com.crossyf.utils.PagedGridResult;
@@ -163,6 +164,26 @@ public class ItemsController extends ApiController {
         }
         PagedGridResult grid = itemsService.queryItems(catId, sort, page, pageSize);
         return JsonResponse.ok(grid);
+    }
+
+    /**
+     * 用于用户长时间未登录网站，刷新购物车中的数据（主要是商品价格），类似京东淘宝
+     *
+     * @param itemSpecIds 商品id，用逗号拼接
+     * @return 结果
+     */
+    @ApiOperation(value = "根据商品规格ids查找最新的商品数据", notes = "根据商品规格ids查找最新的商品数据", httpMethod = "GET")
+    @GetMapping("/refresh")
+    public JsonResponse refresh(
+            @ApiParam(name = "itemSpecIds", value = "拼接的规格ids", required = true, example = "1001," +
+                    "1003,1005")
+            @RequestParam String itemSpecIds) {
+
+        if (StrUtil.isBlank(itemSpecIds)) {
+            return JsonResponse.ok();
+        }
+        List<ShoppingCartVO> list = itemsService.queryItemsBySpecIds(itemSpecIds);
+        return JsonResponse.ok(list);
     }
 
 
