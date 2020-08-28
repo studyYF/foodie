@@ -49,4 +49,12 @@ public interface ItemsMapper extends BaseMapper<Items> {
      * @return 结果
      */
     List<ShoppingCartVO> queryItemsBySpecIds(@Param(value = "paramsList") List<String> specIdsList);
+
+    /**
+     * 扣减库存
+     *
+     * @param specId 商品规格id
+     * @param pendingCounts  购买数量
+     */
+    void decreaseItemSpecStock(@Param("specId") String specId, @Param("pendingCounts") int pendingCounts);
 }
