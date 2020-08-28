@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.crossyf.mapper.OrdersMapper">
 
     <resultMap type="com.crossyf.entity.Orders" id="OrdersMap">
@@ -19,5 +20,67 @@
         <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
         <result property="updatedTime" column="updated_time" jdbcType="TIMESTAMP"/>
     </resultMap>
+    <select id="queryMyOrders" resultType="com.crossyf.entity.vo.MyOrdersVO" parameterType="map">
+        SELECT
+        od.id as orderId,
+        od.created_time as createdTime,
+        od.pay_method as payMethod,
+        od.real_pay_amount as realPayAmount,
+        od.post_amount as postAmount,
+        os.order_status as orderStatus,
+        od.is_comment as isComment
+        FROM
+        orders od
+        LEFT JOIN
+        order_status os
+        on od.id = os.order_id
+        WHERE
+        od.user_id = #{userId}
+        AND
+        od.is_delete = 0
+        <if test="orderStatus != null">
+            and os.order_status = #{orderStatus}
+        </if>
+        ORDER BY
+        od.updated_time ASC
+
+    </select>
+    <select id="queryMyOrderStatusCounts" resultType="java.lang.Integer" parameterType="map">
+        SELECT
+        count(1)
+        FROM
+        orders o
+        LEFT JOIN
+        order_status os
+        on
+        o.id = os.order_id
+        WHERE
+        o.user_id = #{userId}
+        AND
+        os.order_status = #{orderStatus}
+        <if test="isComment != null">
+            and o.is_comment = #{isComment}
+        </if>
+    </select>
+    <select id="queryMyOrderTrend" resultType="com.crossyf.entity.OrderStatus" parameterType="map">
+        SELECT os.order_id     as orderId,
+               os.order_status as orderStatus,
+               os.created_time as createdTime,
+               os.pay_time     as payTime,
+               os.deliver_time as deliverTime,
+               os.success_time as successTime,
+               os.close_time   as closeTime,
+               os.comment_time as commentTime
+        FROM orders o
+                 LEFT JOIN
+             order_status os
+             on
+                 o.id = os.order_id
+        WHERE o.is_delete = 0
+          AND o.user_id = #{userId}
+          AND os.order_status in (20, 30, 40)
+        ORDER BY os.order_id
+            DESC
+    </select>
 
 </mapper>
