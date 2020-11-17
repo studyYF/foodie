@@ -24,6 +24,8 @@ public class CorsConfig {
 //        corsConfiguration.addAllowedOrigin("http://localhost:8080");
 //        corsConfiguration.addAllowedOrigin("http://www.crossyf.com:8088");
 //        corsConfiguration.addAllowedOrigin("http://10.211.55.3:8088");
+
+
         corsConfiguration.addAllowedHeader("*");
         corsConfiguration.addAllowedMethod("*");
         corsConfiguration.setAllowCredentials(true);
