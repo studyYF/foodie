@@ -22,4 +22,9 @@ public class Constant {
      */
     public static final String PAYMENT_URL = "http://payment.t.mukewang.com/foodie-payment/payment/createMerchantOrder";
 
+    /**
+     * 保存用户信息到redis的token
+     */
+    public static final String REDIS_USER_TOKEN = "redis_user_token";
+
 }

@@ -5,20 +5,24 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.ApiController;
+import com.crossyf.constant.Constant;
 import com.crossyf.entity.Users;
 import com.crossyf.entity.bo.UserBO;
 import com.crossyf.service.UsersService;
 import com.crossyf.utils.CookieUtils;
 import com.crossyf.utils.JsonResponse;
 import com.crossyf.utils.JsonUtils;
+import com.crossyf.utils.RedisOperator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.UUID;
 
 /**
  * 用户表 (Users)表控制层
@@ -35,6 +39,9 @@ public class UsersController extends ApiController {
      */
     @Resource
     private UsersService usersService;
+
+    @Autowired
+    private RedisOperator redisOperator;
 
 
     /**
@@ -91,6 +98,11 @@ public class UsersController extends ApiController {
         //5.注册
         JsonResponse jsonResponse = usersService.saveUser(userBO);
         Users usersResult = setNullProperty((Users) jsonResponse.getData());
+        //实现用户的redis会话
+        String uniqueToken = UUID.randomUUID().toString().trim();
+        redisOperator.set(Constant.REDIS_USER_TOKEN + ":" + usersResult.getId(), uniqueToken);
+
+
         CookieUtils.setCookie(request, response, "user",
                 JsonUtils.objectToJson(usersResult), true);
         return jsonResponse;
