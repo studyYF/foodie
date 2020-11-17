@@ -8,7 +8,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="752fd84f-515a-4be6-a39b-4c93301cde64" name="Default Changelist" comment="" />
+    <list default="true" id="752fd84f-515a-4be6-a39b-4c93301cde64" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/foodie-api/src/main/java/com/crossyf/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-api/src/main/java/com/crossyf/config/CorsConfig.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +23,19 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="OPTIONS">
+      <set>
+        <option value="NO_FF" />
+      </set>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="2020-11-20" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -179,7 +193,7 @@
       <workItem from="1601349974240" duration="8274000" />
       <workItem from="1604049462849" duration="850000" />
       <workItem from="1604294913560" duration="156000" />
-      <workItem from="1605597531077" duration="971000" />
+      <workItem from="1605597531077" duration="2034000" />
     </task>
     <task id="LOCAL-00001" summary="初始化项目">
       <created>1597714708476</created>
@@ -269,9 +283,34 @@
       <map>
         <entry key="1">
           <value>
-            <State />
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
