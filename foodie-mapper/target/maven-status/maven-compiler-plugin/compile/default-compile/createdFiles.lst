@@ -1,0 +1,12 @@
+com/crossyf/mapper/CarouselMapper.class
+com/crossyf/mapper/OrdersMapper.class
+com/crossyf/mapper/UsersMapper.class
+com/crossyf/mapper/CategoryMapper.class
+com/crossyf/mapper/ItemsMapper.class
+com/crossyf/mapper/ItemsCommentsMapper.class
+com/crossyf/mapper/UserAddressMapper.class
+com/crossyf/mapper/ItemsParamMapper.class
+com/crossyf/mapper/OrderItemsMapper.class
+com/crossyf/mapper/OrderStatusMapper.class
+com/crossyf/mapper/ItemsImgMapper.class
+com/crossyf/mapper/ItemsSpecMapper.class
