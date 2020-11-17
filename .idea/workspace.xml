@@ -3,6 +3,10 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="752fd84f-515a-4be6-a39b-4c93301cde64" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +61,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -91,6 +95,17 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -248,6 +263,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -408,11 +435,11 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="305" y="193" key="NewModule_or_Project.wizard/-1920.23.1920.1057/0.23.1680.1027@0.23.1680.1027" timestamp="1600736878407" />
-    <state x="0" y="23" width="1568" height="897" key="SettingsEditor" timestamp="1600736887384">
+    <state x="17" y="49" width="1568" height="897" key="SettingsEditor" timestamp="1605608024329">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="0" y="23" width="1680" height="1027" key="SettingsEditor/-1920.23.1920.1057/0.23.1680.1027@0.23.1680.1027" timestamp="1600736887384" />
-    <state x="0" y="23" width="1568" height="897" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1597851924746" />
+    <state x="17" y="49" width="1568" height="897" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1605608024329" />
     <state width="625" height="666" key="SwitcherDM" timestamp="1597993168182">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
