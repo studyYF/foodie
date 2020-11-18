@@ -102,7 +102,7 @@ public class UsersController extends ApiController {
         String uniqueToken = UUID.randomUUID().toString().trim();
         redisOperator.set(Constant.REDIS_USER_TOKEN + ":" + usersResult.getId(), uniqueToken);
 
-
+        //修复一个线上bug
         CookieUtils.setCookie(request, response, "user",
                 JsonUtils.objectToJson(usersResult), true);
         return jsonResponse;
