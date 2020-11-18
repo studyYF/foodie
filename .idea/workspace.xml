@@ -8,9 +8,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="752fd84f-515a-4be6-a39b-4c93301cde64" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/foodie-api/src/main/java/com/crossyf/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/foodie-api/src/main/java/com/crossyf/config/CorsConfig.java" afterDir="false" />
-    </list>
+    <list default="true" id="752fd84f-515a-4be6-a39b-4c93301cde64" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
